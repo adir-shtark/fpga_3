@@ -1,0 +1,8 @@
+verilog xil_defaultlib --include "../../../ipstatic" \
+"../../../../done_project_copied.gen/sources_1/ip/clocking/clocking_clk_wiz.v" \
+"../../../../done_project_copied.gen/sources_1/ip/clocking/clocking.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

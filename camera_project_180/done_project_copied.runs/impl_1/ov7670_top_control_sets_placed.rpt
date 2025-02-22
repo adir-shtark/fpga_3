@@ -1,0 +1,100 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Mon Nov  6 23:10:53 2023
+| Host         : DESKTOP-2822QQS running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file ov7670_top_control_sets_placed.rpt
+| Design       : ov7670_top
+| Device       : xc7a100t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    22 |
+|    Minimum number of control sets                        |    22 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    85 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    22 |
+| >= 0 to < 4        |     5 |
+| >= 4 to < 6        |     0 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     2 |
+| >= 10 to < 12      |     3 |
+| >= 12 to < 14      |     1 |
+| >= 14 to < 16      |     1 |
+| >= 16              |    10 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              17 |           16 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |             131 |           40 |
+| Yes          | No                    | No                     |              68 |           27 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             107 |           27 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++---------------------------------+-------------------------------------------------------+---------------------------------------------------+------------------+----------------+--------------+
+|           Clock Signal          |                     Enable Signal                     |                  Set/Reset Signal                 | Slice Load Count | Bel Load Count | Bels / Slice |
++---------------------------------+-------------------------------------------------------+---------------------------------------------------+------------------+----------------+--------------+
+|  a_debounce/o_reg_0             |                                                       |                                                   |                1 |              1 |         1.00 |
+|  your_instance_name/inst/CLK_25 |                                                       |                                                   |                1 |              1 |         1.00 |
+|  your_instance_name/inst/CLK_25 |                                                       | Inst_vga/vga_hsync0                               |                1 |              1 |         1.00 |
+|  your_instance_name/inst/CLK_25 |                                                       | Inst_vga/vga_vsync0                               |                1 |              1 |         1.00 |
+|  your_instance_name/inst/CLK_50 |                                                       | controller/Inst_i2c_sender/sioc_i_1_n_0           |                1 |              1 |         1.00 |
+|  your_instance_name/inst/CLK_50 | controller/Inst_i2c_sender/E[0]                       | btn_debounce/SR[0]                                |                2 |              8 |         4.00 |
+|  your_instance_name/inst/CLK_50 | controller/Inst_ov7670_registers/busy_sr_reg[31]_1[0] |                                                   |                2 |              8 |         4.00 |
+|  your_instance_name/inst/CLK_25 |                                                       | Inst_vga/hCounter[9]_i_1_n_0                      |                3 |             10 |         3.33 |
+|  your_instance_name/inst/CLK_25 | Inst_vga/hCounter[9]_i_1_n_0                          |                                                   |                3 |             10 |         3.33 |
+|  your_instance_name/inst/CLK_50 | controller/Inst_i2c_sender/busy_sr0                   | controller/Inst_i2c_sender/data_sr[30]_i_1_n_0    |                5 |             11 |         2.20 |
+|  your_instance_name/inst/CLK_25 |                                                       | Inst_vga/blank                                    |                9 |             12 |         1.33 |
+|  your_instance_name/inst/CLK_50 |                                                       |                                                   |               14 |             15 |         1.07 |
+|  your_instance_name/inst/CLK_50 |                                                       | controller/Inst_ov7670_registers/sreg[15]_i_1_n_0 |                3 |             16 |         5.33 |
+|  OV7670_PCLK_IBUF_BUFG          | a_capture/wr_hold_reg_n_0_[1]                         | OV7670_VSYNC_IBUF                                 |                5 |             19 |         3.80 |
+|  OV7670_PCLK_IBUF_BUFG          | capture/p_1_in                                        | OV7670_VSYNC_IBUF                                 |                5 |             19 |         3.80 |
+|  your_instance_name/inst/CLK_25 | Inst_vga/address[0]_i_2_n_0                           | Inst_vga/address[0]_i_1__0_n_0                    |                5 |             19 |         3.80 |
+|  your_instance_name/inst/CLK_50 | controller/Inst_i2c_sender/busy_sr0                   |                                                   |                6 |             21 |         3.50 |
+|  your_instance_name/inst/CLK_50 |                                                       | a_debounce/c[0]_i_1__0_n_0                        |                6 |             24 |         4.00 |
+|  your_instance_name/inst/CLK_50 |                                                       | btn_debounce/clear                                |                6 |             24 |         4.00 |
+|  OV7670_PCLK_IBUF_BUFG          | capture/OV7670_VSYNC                                  |                                                   |               16 |             29 |         1.81 |
+|  your_instance_name/inst/CLK_50 | controller/Inst_i2c_sender/busy_sr0                   | controller/Inst_i2c_sender/busy_sr[31]_i_1_n_0    |                5 |             31 |         6.20 |
+|  OV7670_PCLK_IBUF_BUFG          |                                                       | OV7670_VSYNC_IBUF                                 |               10 |             42 |         4.20 |
++---------------------------------+-------------------------------------------------------+---------------------------------------------------+------------------+----------------+--------------+
+
+
